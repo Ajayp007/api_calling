@@ -7,7 +7,7 @@ class PostProvider with ChangeNotifier {
 
   Future<void> getPostApi() async {
     ApiHelper apiHelper = ApiHelper();
-    postList = await apiHelper.getAPI();
+    postList = await apiHelper.getPostAPI();
     notifyListeners();
   }
 }
