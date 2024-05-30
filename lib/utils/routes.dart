@@ -18,6 +18,6 @@ Map<String, WidgetBuilder> appRoutes = {
   'photos':(context) => const PhotosScreen(),
   'todos':(context) => const TodosScreen(),
    'user':(context) => const UserScreen(),
-  // 'country':(context) => const CountryScreen(),
-  // 'news':(context) => const NewsScreen(),
+   'country':(context) => const CountryScreen(),
+  'news':(context) => const NewsScreen(),
 };

@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:api_calling/screen/albums/model/album_model.dart';
 import 'package:api_calling/screen/comments/model/comment_model.dart';
+import 'package:api_calling/screen/country/model/country_model.dart';
+import 'package:api_calling/screen/news/model/news_model.dart';
 import 'package:api_calling/screen/photos/model/photos_model.dart';
 import 'package:api_calling/screen/post/model/post_model.dart';
 import 'package:api_calling/screen/todos/model/todos_model.dart';
@@ -107,6 +109,40 @@ class ApiHelper {
           )
           .toList();
       return u1;
+    }
+    return null;
+  }
+
+  Future<List<CountryModel>?> getCountryAPI() async {
+    String countryString = "https://restcountries.com/v3.1/all";
+
+    var response = await http.get(Uri.parse(countryString));
+
+    if (response.statusCode == 200) {
+      List countryList = jsonDecode(response.body);
+      List<CountryModel> c1 = countryList
+          .map(
+            (e) => CountryModel.mapToModel(e),
+          )
+          .toList();
+
+      return c1;
+    }
+    return null;
+  }
+
+  Future<NewsModel?> getNewsAPI() async {
+    String newsString =
+        "https://newsapi.org/v2/top-headlines?country=in&apiKey=3f9750883a484e5e8b39123579decdbc";
+
+    var response = await http.get(Uri.parse(newsString));
+
+    if (response.statusCode == 200) {
+      var json = jsonDecode(response.body);
+
+      NewsModel model = NewsModel.mapToModel(json);
+
+      return model;
     }
     return null;
   }

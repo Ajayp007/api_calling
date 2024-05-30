@@ -1,5 +1,7 @@
 import 'package:api_calling/screen/albums/provider/album_provider.dart';
 import 'package:api_calling/screen/comments/provider/comment_provider.dart';
+import 'package:api_calling/screen/country/provider/country_provider.dart';
+import 'package:api_calling/screen/news/provider/news_provider.dart';
 import 'package:api_calling/screen/photos/provider/photos_provider.dart';
 import 'package:api_calling/screen/post/provider/post_provider.dart';
 import 'package:api_calling/screen/todos/provider/todos_provider.dart';
@@ -29,6 +31,12 @@ void main() {
         ),
         ChangeNotifierProvider.value(
           value: UserProvider(),
+        ),
+        ChangeNotifierProvider.value(
+          value: CountryProvider(),
+        ),
+        ChangeNotifierProvider.value(
+          value: NewsProvider(),
         ),
       ],
       child: MaterialApp(
